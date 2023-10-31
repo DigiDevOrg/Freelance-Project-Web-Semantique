@@ -10,16 +10,18 @@ import java.util.List;
 public class UserService {
 
     public List<?> getAll() {
-        String query = "SELECT ?individual ?bio ?email ?username\n" +
+        String query = "SELECT ?individual ?firstname ?lastname ?email ?username\n" +
                 "WHERE {\n" +
                 "  ?individual a ?type.\n" +
-                "  FILTER (?type = <http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#Member> || ?type = <http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#Administrator>).\n"
+                "  FILTER (?type = <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#Client> || ?type = <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#Freelancer> || ?type = <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#Admin>).\n"
                 +
-                "  OPTIONAL { ?individual <http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#bio> ?bio }\n"
+                "  OPTIONAL { ?individual <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#firstname> ?firstname }\n"
                 +
-                "  OPTIONAL { ?individual <http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#email> ?email }\n"
+                "  OPTIONAL { ?individual <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#lastname> ?lastname }\n"
                 +
-                "  OPTIONAL { ?individual <http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#username> ?username }\n"
+                "  OPTIONAL { ?individual <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#email> ?email }\n"
+                +
+                "  OPTIONAL { ?individual <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#username> ?username }\n"
                 +
                 "}";
 
@@ -27,8 +29,14 @@ public class UserService {
         // fill array on creation
         fields.add(new ArrayList<String>() {
             {
-                add("bio");
-                add("bio");
+                add("firstname");
+                add("firstname");
+            }
+        });
+        fields.add(new ArrayList<String>() {
+            {
+                add("lastname");
+                add("lastname");
             }
         });
         fields.add(new ArrayList<String>() {

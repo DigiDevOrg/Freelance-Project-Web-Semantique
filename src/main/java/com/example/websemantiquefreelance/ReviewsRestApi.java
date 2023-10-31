@@ -1,28 +1,28 @@
 package com.example.websemantiquefreelance;
 
 import com.example.websemantiquefreelance.services.ReviewsService;
+import com.example.websemantiquefreelance.utils.JenaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/reviews")
+@RequestMapping("/review")
 public class ReviewsRestApi {
-    @Autowired
+
     private ReviewsService reviewsService;
 
 
 
-   private final JenaUtils jenaUtils;
+  JenaUtils jenaUtils;
 
 
 
-    public ServicesRestApi(ReviewsService reviewsService, JenaUtils jenaUtils) {
-        this.reviewsService = reviewsService;
-        this.jenaUtils = jenaUtils;
-    }
 
     @GetMapping("/all")
         public List<Map<String, String>> getAllReviews() {
@@ -59,13 +59,13 @@ public class ReviewsRestApi {
             String sparqlQuery = "SELECT ?review ?reviewDate ?reviewRating ?reviewText " +
                     "WHERE {" +
                     "  ?review a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews>." +
-                    "  ?service <#reviewDate> ?reviewDate." +
+                    "  ?review <#reviewDate> ?reviewDate." +
                     "  ?review <#reviewRating> ?reviewRating." +
                     "  ?review <#reviewText> ?reviewText." +
                     "  FILTER (regex(?reviewDate, '" + keyword + "', 'i') || regex(?reviewRating, '" + keyword + "', 'i'))." +
                     "}";
             List<List<String>> fields = List.of(
-                    List.of("service", "serviceURI"),
+                    List.of("review", "reviewURI"),
                     List.of("reviewDate", "reviewDate"),
                     List.of("reviewRating", "reviewRating"),
                     List.of("reviewText", "reviewText")
@@ -84,7 +84,7 @@ public class ReviewsRestApi {
             @RequestParam String freelancerURI // The URI of the Freelancer to associate the service with
     ) {
         // Generate a new service URI or use a predefined one if applicable
-        String newReviewURI = "http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#newServiceURI"; // Replace with the actual URI
+        String newReviewURI = "http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#newReviewURI"; // Replace with the actual URI
 
         // Construct the SPARQL INSERT query to add a new service
         String sparqlInsert = "INSERT DATA { " +
@@ -98,10 +98,10 @@ public class ReviewsRestApi {
             // Execute the SPARQL INSERT query to add the new service
             jenaUtils.executeInsert(sparqlInsert);
 
-            return new ResponseEntity<>("Reviews added successfully.", HttpStatus.OK);
+            return new ResponseEntity<>("Review added successfully.", HttpStatus.OK);
         } catch (Exception e) {
             // Handle any exceptions that may occur during the insertion process
-            return new ResponseEntity<>("Failed to add the service. Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to add the Review. Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

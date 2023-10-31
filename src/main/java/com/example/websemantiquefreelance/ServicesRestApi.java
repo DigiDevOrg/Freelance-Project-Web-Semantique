@@ -15,14 +15,10 @@ import java.util.Map;
 @RequestMapping("/services")
 public class ServicesRestApi {
     private ServicesService servicesService;
-        private final JenaUtils jenaUtils;
+        JenaUtils jenaUtils;
 
 
 
-    public ServicesRestApi(ServicesService servicesService, JenaUtils jenaUtils) {
-        this.servicesService = servicesService;
-        this.jenaUtils = jenaUtils;
-    }
 
     @GetMapping("/all")
         public List<Map<String, String>> getAllServices() {

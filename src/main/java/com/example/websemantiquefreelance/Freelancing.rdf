@@ -22,6 +22,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviewed -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviewed">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+    </ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Supervises -->
 
     <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Supervises">
@@ -669,6 +679,7 @@
 
     <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed">
         <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <untitled-ontology-9:Reviewed rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Fi_Stars"/>
         <untitled-ontology-9:hasPayments rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#120$"/>
         <untitled-ontology-9:isClientOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ibrahim"/>
         <untitled-ontology-9:Email>Ahmed.Derouiche@esprit.com</untitled-ontology-9:Email>
@@ -722,6 +733,28 @@
         <untitled-ontology-9:serviceDescription>Desingning Logos</untitled-ontology-9:serviceDescription>
         <untitled-ontology-9:serviceName>Design Logos</untitled-ontology-9:serviceName>
         <untitled-ontology-9:servicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</untitled-ontology-9:servicePrice>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Fi_Stars -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Fi_Stars">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#ClientReview"/>
+        <untitled-ontology-9:reviewDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:reviewDate>
+        <untitled-ontology-9:reviewRating>5</untitled-ontology-9:reviewRating>
+        <untitled-ontology-9:reviewText>Nice Work</untitled-ontology-9:reviewText>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Fours_Stars -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Fours_Stars">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#ClientReview"/>
+        <untitled-ontology-9:reviewDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:reviewDate>
+        <untitled-ontology-9:reviewRating>4</untitled-ontology-9:reviewRating>
+        <untitled-ontology-9:reviewText>Good Job</untitled-ontology-9:reviewText>
     </NamedIndividual>
     
 
@@ -883,8 +916,18 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
         <untitled-ontology-9:orderDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:orderDate>
         <untitled-ontology-9:paymentAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</untitled-ontology-9:paymentAmount>
-        <untitled-ontology-9:paymentDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:paymentDate>
         <untitled-ontology-9:paymentMethod>Cash</untitled-ontology-9:paymentMethod>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#500$ -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#500$">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+        <untitled-ontology-9:paymentAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</untitled-ontology-9:paymentAmount>
+        <untitled-ontology-9:paymentDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:paymentDate>
+        <untitled-ontology-9:paymentMethod>CC</untitled-ontology-9:paymentMethod>
     </NamedIndividual>
 </rdf:RDF>
 

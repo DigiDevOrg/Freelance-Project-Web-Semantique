@@ -17,14 +17,7 @@ public class ServicesRestApi {
 
     @Autowired
     private ServicesService servicesService;
-<<<<<<< HEAD
-        JenaUtils jenaUtils;
 
-
-
-
-=======
->>>>>>> 3d8fcafb439a42d7b1fa72611a75445b9c7c2aa1
     @GetMapping("/all")
     public List<Map<String, String>> getAllServices() {
         return servicesService.getAllServices();

@@ -16,14 +16,7 @@ import java.util.Map;
 public class ReviewsRestApi {
 
     private ReviewsService reviewsService;
-
-
-
-  JenaUtils jenaUtils;
-
-
-
-
+    JenaUtils jenaUtils;
     @GetMapping("/all")
         public List<Map<String, String>> getAllReviews() {
             String sparqlQuery = "SELECT ?review ?reviewDate ?reviewRating ?reviewText " +
@@ -31,7 +24,7 @@ public class ReviewsRestApi {
                     "  ?review a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews>." +
                     "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewDate> ?reviewDate." +
                     "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewRating> ?reviewRating." +
-                    "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews> ?reviewText." +
+                    "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewText> ?reviewText." +
                     "}";
             List<List<String>> fields = List.of(
                     List.of("review", "reviewURI"),
@@ -39,7 +32,7 @@ public class ReviewsRestApi {
                     List.of("reviewRating", "reviewRating"),
                     List.of("reviewText", "reviewText")
             );
-            return jenaUtils.executeSelect(sparqlQuery, fields);
+            return jenaUtils.get().executeSelect(sparqlQuery, fields);
         }
 
 

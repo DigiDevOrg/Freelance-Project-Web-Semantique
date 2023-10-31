@@ -71,5 +71,9 @@ public class CategoryRestApi {
     public List<Map<String, String>> getCtegoryByName (@RequestParam String CategoryName) {
         return categoryService.CategoryByName(CategoryName);
     }
+    @GetMapping("/search")
+    public List<Map<String, String>> searchCategory(@RequestParam String keyword) {
+        return categoryService.SearchCategory(keyword);
+    }
 
 }

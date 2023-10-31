@@ -71,6 +71,28 @@ public class CategoryService {
         return jenaUtils.get().executeSelect(sparqlQuery, fields);
     }
 
+    public List<Map<String, String>> SearchCategory(String keyword) {
+        String sparqlQuery = "SELECT ?categoryURI ?CategoryName ?CategoryDesc " +
+                "WHERE {" +
+                "  ?Category a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category>." +
+                "  ?Category <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryName> ?CategoryName." +
+                "  ?Category <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryDesc> ?CategoryDesc." +
+                "  FILTER (regex(?CategoryName, '" + keyword + "', 'i') || regex(?CategoryDesc, '" + keyword + "', 'i'))." +
+                "}";
+        List<List<String>> fields = List.of(
+                List.of("categoryURI", "categoryURI"),
+                List.of("CategoryName", "CategoryName"),
+                List.of("CategoryDesc", "CategoryDesc")
+        );
+
+        System.out.println("SPARQL QUERY: " + sparqlQuery);
+        System.out.println(keyword);
+        List<Map<String, String>> results = jenaUtils.get().executeSelect(sparqlQuery, fields);
+
+
+        return results;
+    }
+
 
 
 

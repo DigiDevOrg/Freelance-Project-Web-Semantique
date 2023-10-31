@@ -31,12 +31,12 @@ public class JenaUtils {
     public Model model;
     public OntModel ontModel;
     private QueryExecution queryExec;
-    private String rdfFile = "src/main/java/org/example/socialMedia.rdf";
+    private String rdfFile = "src/main/java/org/example/Freelancing.rdf";
 
     public Dataset dataset;
 
     public static String getPrefix() {
-        return "untitled-ontology-2";
+        return "untitled-ontology-9";
     }
 
     public JenaUtils() {

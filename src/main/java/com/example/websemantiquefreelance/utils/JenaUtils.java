@@ -31,7 +31,7 @@ public class JenaUtils {
     public Model model;
     public OntModel ontModel;
     private QueryExecution queryExec;
-    private String rdfFile = "src/main/java/org/example/Freelancing.rdf";
+    private String rdfFile = "src/main/java/com/example/websemantiquefreelance/Freelancing.rdf";
 
     public Dataset dataset;
 

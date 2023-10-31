@@ -19,6 +19,7 @@ public class ServicesRestApi {
 
 
 
+        @Autowired
     public ServicesRestApi(ServicesService servicesService, JenaUtils jenaUtils) {
         this.servicesService = servicesService;
         this.jenaUtils = jenaUtils;

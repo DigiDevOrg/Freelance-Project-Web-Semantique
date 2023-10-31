@@ -32,17 +32,19 @@ public class CategoryService {
         return JenaUtils.get().executeSelect(query, fields);
     }
 
-    public String addCategory(String categoryName, String categoryDesc) {
-        String query = "PREFIX untitled-ontology-9: <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#>\n" +
-                "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                "INSERT DATA {\n" +
-                "  ?newCategory a untitled-ontology-9:Category ;\n" +
-                "  untitled-ontology-9:CategoryName \"" + categoryName + "\" ;\n" +
-                "  untitled-ontology-9:CategoryDesc \"" + categoryDesc + "\"^^xsd:string .\n" +
+    public String addCategory(String categoryName, String categoryDesc ) {
+        String query = "PREFIX untitled-ontology-2: <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#>\n"
+                + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\n" +
+                "INSERT DATA { \n" +
+                prefix + ":newCategory a " + prefix + ":newCategory ; \n" +
+                prefix + ":categoryName \"" + categoryName + "\"^^xsd:string ;\n" +
+                prefix + ":CategoryDesc \"" + categoryDesc + "\" ;\n" +
                 "}";
 
         return JenaUtils.get().executeInsert(query);
     }
+
 
 
 }

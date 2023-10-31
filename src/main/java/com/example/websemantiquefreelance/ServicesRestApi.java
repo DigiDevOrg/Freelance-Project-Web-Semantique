@@ -3,6 +3,8 @@ package com.example.websemantiquefreelance;
 import com.example.websemantiquefreelance.services.ServicesService;
 import com.example.websemantiquefreelance.utils.JenaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -107,4 +109,33 @@ public class ServicesRestApi {
         return jenaUtils.executeSelect(sparqlQuery, fields);
     }
 
+    @PostMapping("/addService")
+    public ResponseEntity<String> addService(
+            @RequestParam String serviceName,
+            @RequestParam String serviceDescription,
+            @RequestParam String servicePrice,
+            @RequestParam String freelancerURI // The URI of the Freelancer to associate the service with
+    ) {
+        // Generate a new service URI or use a predefined one if applicable
+        String newServiceURI = "http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#newServiceURI"; // Replace with the actual URI
+
+        // Construct the SPARQL INSERT query to add a new service
+        String sparqlInsert = "INSERT DATA { " +
+                "<" + newServiceURI + "> a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services> ; " +
+                "    <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceName> '" + serviceName + "' ; " +
+                "    <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceDescription> '" + serviceDescription + "' ; " +
+                "    <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#servicePrice> '" + servicePrice + "' ; " +
+                "    <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#belongsToFreelancer> <" + freelancerURI + "> ." +
+                "}";
+
+        try {
+            // Execute the SPARQL INSERT query to add the new service
+            jenaUtils.executeInsert(sparqlInsert);
+
+            return new ResponseEntity<>("Service added successfully.", HttpStatus.OK);
+        } catch (Exception e) {
+            // Handle any exceptions that may occur during the insertion process
+            return new ResponseEntity<>("Failed to add the service. Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

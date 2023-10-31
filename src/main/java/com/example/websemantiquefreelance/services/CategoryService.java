@@ -2,34 +2,33 @@ package com.example.websemantiquefreelance.services;
 
 import com.example.websemantiquefreelance.utils.JenaUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CategoryService {
 
-    String prefix = JenaUtils.getPrefix();
-    public List<?> getAll() {
-        String query = "SELECT ?Category ?CategoryName ?CategoryDesc WHERE {\n" +
-                "  ?Category a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category>.\n"
-                +
-                "  ?Category <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryName> ?CategoryName.\n"
-                +
-                "  OPTIONAL { ?Category <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryDesc> ?CategoryDesc.\n"
-                +
+
+    JenaUtils jenaUtils;
+    String prefix = jenaUtils.getPrefix();
+
+    public List<Map<String, String>> getAll() {
+        String sparqlQuery = "SELECT ?Category ?CategoryName ?CategoryDesc " +
+                "WHERE {" +
+                "  ?Category a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category>." +
+                "  ?Category <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryName> ?CategoryName." +
+                "  ?Category <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryDesc> ?CategoryDesc." +
                 "}";
-
-        List<List<String>> fields = new ArrayList<>();
-        fields.add(new ArrayList<String>() {
-            {
-                add("CategoryDesc");
-                add("CategoryDesc");
-            }
-        });
-
-        return JenaUtils.get().executeSelect(query, fields);
+        List<List<String>> fields = List.of(
+                List.of("Category", "CategoryURI"),
+                List.of("CategoryName", "CategoryName"),
+                List.of("CategoryDesc", "CategoryDesc")
+        );
+        return jenaUtils.get().executeSelect(sparqlQuery, fields);
     }
 
     public String addCategory(String categoryName, String categoryDesc ) {
@@ -42,8 +41,36 @@ public class CategoryService {
                 prefix + ":CategoryDesc \"" + categoryDesc + "\" ;\n" +
                 "}";
 
-        return JenaUtils.get().executeInsert(query);
+        return jenaUtils.get().executeInsert(query);
     }
+
+    public List<Map<String, String>> DetailsCategory (@RequestParam String CategoryURI) {
+        String sparqlQuery = "SELECT ?property ?value WHERE {<" + CategoryURI + "> ?property ?value.}";
+        List<List<String>> fields = List.of(
+                List.of("property", "property"),
+                List.of("value", "value")
+        );
+        return jenaUtils.get().executeSelect(sparqlQuery, fields);
+    }
+
+
+    public List<Map<String, String>> CategoryByName(@RequestParam String CategoryName) {
+
+        String sparqlQuery = "SELECT ?categoryURI ?CategoryName ?CategoryDesc WHERE {"
+                + "?categoryURI <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryName> ?CategoryName ."
+                + "?categoryURI <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryDesc> ?CategoryDesc ."
+                + "FILTER(?CategoryName = \"" + CategoryName + "\")"
+                + "}";
+
+        List<List<String>> fields = List.of(
+                List.of("categoryURI", "categoryURI"),
+                List.of("CategoryName", "CategoryName"),
+                List.of("CategoryDesc", "CategoryDesc")
+        );
+
+        return jenaUtils.get().executeSelect(sparqlQuery, fields);
+    }
+
 
 
 

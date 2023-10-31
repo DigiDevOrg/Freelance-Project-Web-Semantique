@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin("*")
 @RestController
@@ -27,10 +29,14 @@ public class CategoryRestApi {
 
     @GetMapping("/all")
     @ResponseStatus
-    public ResponseEntity<?> getAll() {
-        return ResponseEntity.ok(categoryService.getAll());
+    public List<Map<String, String>> getAll() {
+        return categoryService.getAll();
     }
 
+    @GetMapping("/details")
+    public List<Map<String, String>> getCategoryDetails(@RequestParam String CategoryURI) {
+        return categoryService.DetailsCategory(CategoryURI);
+    }
     @PostMapping
     @ResponseStatus
     public ResponseEntity<?> add(@RequestParam String categoryName, @RequestParam String categoryDesc) {
@@ -60,4 +66,10 @@ public class CategoryRestApi {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("category not found.");
         }
     }
+
+    @GetMapping("/CategoryByName")
+    public List<Map<String, String>> getCtegoryByName (@RequestParam String CategoryName) {
+        return categoryService.CategoryByName(CategoryName);
+    }
+
 }

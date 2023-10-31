@@ -1,0 +1,894 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-9="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#">
+    <Ontology rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Supervises -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Supervises">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Admin"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#belongsTo -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#belongsTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasAutor -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasAutor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasCategory -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasMessages -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasMessages">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasOrders -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasOrders">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasPayments -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasPayments">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasReviews -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasReviews">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasService -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasService">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasSkills -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasSkills">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#isClientOf -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#isClientOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#isFreelancerOf -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#isFreelancerOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#madePayment -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#madePayment">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#placedOrder -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#placedOrder">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#possessesSkill -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#possessesSkill">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewedService -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewedService">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#sentMessage -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#sentMessage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryDesc -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryDesc">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryName -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CategoryName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Email -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Email">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#FirstName -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#FirstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#LastName -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#LastName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Username -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Username">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#messageContent -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#messageContent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#messageSubject -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#messageSubject">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#messageTimestamp -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#messageTimestamp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderDate -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderPaymentMethod -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderPaymentMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderStatus -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderStatus">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderTotalAmount -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderTotalAmount">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentAmount -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentAmount">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentDate -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentMethod -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentStatus -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentStatus">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewDate -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewRating -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewRating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewText -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewText">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceDescription -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceName -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#servicePrice -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#servicePrice">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#skillCategory -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#skillCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#skillDescription -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#skillDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#skillName -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#skillName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Admin -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Admin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#ClientReview -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#ClientReview">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CompletedOrder -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CompletedOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#FreelancerReview -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#FreelancerReview">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#HardSkills -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#HardSkills">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Individual -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Individual">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MessageToAdmin -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MessageToAdmin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MessageToFreelancer -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MessageToFreelancer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#OnGoingOrder -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#OnGoingOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#PaymentByCC -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#PaymentByCC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#PaymentByCash -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#PaymentByCash">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#SmallBusiness -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#SmallBusiness">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#SoftSkills -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#SoftSkills">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER -->
+
+    <Class rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#USER"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Client"/>
+        <untitled-ontology-9:hasPayments rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#120$"/>
+        <untitled-ontology-9:isClientOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ibrahim"/>
+        <untitled-ontology-9:Email>Ahmed.Derouiche@esprit.com</untitled-ontology-9:Email>
+        <untitled-ontology-9:FirstName>Ahmed</untitled-ontology-9:FirstName>
+        <untitled-ontology-9:LastName>Derouiche</untitled-ontology-9:LastName>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CreateWebsite -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CreateWebsite">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <untitled-ontology-9:hasService rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#CreateWebsite"/>
+        <untitled-ontology-9:serviceDescription>Creating Web apps</untitled-ontology-9:serviceDescription>
+        <untitled-ontology-9:serviceName>Creating Websites</untitled-ontology-9:serviceName>
+        <untitled-ontology-9:servicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1222</untitled-ontology-9:servicePrice>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Data_Cleaning -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Data_Cleaning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <untitled-ontology-9:hasPayments rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#120$"/>
+        <untitled-ontology-9:orderDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:orderDate>
+        <untitled-ontology-9:orderPaymentMethod>Cash</untitled-ontology-9:orderPaymentMethod>
+        <untitled-ontology-9:orderStatus>Pending</untitled-ontology-9:orderStatus>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Data_Science -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Data_Science">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+        <untitled-ontology-9:hasSkills rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Multi_Tasking"/>
+        <untitled-ontology-9:CategoryDesc>data scince with python</untitled-ontology-9:CategoryDesc>
+        <untitled-ontology-9:CategoryName>data science</untitled-ontology-9:CategoryName>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Designing_Logo -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Designing_Logo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services"/>
+        <untitled-ontology-9:belongsTo rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Mahdi"/>
+        <untitled-ontology-9:hasCategory rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Graphic_Design"/>
+        <untitled-ontology-9:serviceDescription>Desingning Logos</untitled-ontology-9:serviceDescription>
+        <untitled-ontology-9:serviceName>Design Logos</untitled-ontology-9:serviceName>
+        <untitled-ontology-9:servicePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</untitled-ontology-9:servicePrice>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Gerat_Work -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Gerat_Work">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+        <untitled-ontology-9:hasAutor rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed"/>
+        <untitled-ontology-9:messageContent>great work</untitled-ontology-9:messageContent>
+        <untitled-ontology-9:messageSubject>good vibes</untitled-ontology-9:messageSubject>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Graphic_Design -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Graphic_Design">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+        <untitled-ontology-9:hasService rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Designing_Logo"/>
+        <untitled-ontology-9:CategoryDesc>Des Logos and all</untitled-ontology-9:CategoryDesc>
+        <untitled-ontology-9:CategoryName>D Logos</untitled-ontology-9:CategoryName>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ibrahim -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ibrahim">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <untitled-ontology-9:hasMessages rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Gerat_Work"/>
+        <untitled-ontology-9:hasSkills rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Stress_Management"/>
+        <untitled-ontology-9:isFreelancerOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed"/>
+        <untitled-ontology-9:Email>ibrahim.benrayana@esprit.tn</untitled-ontology-9:Email>
+        <untitled-ontology-9:FirstName>Ibrahim</untitled-ontology-9:FirstName>
+        <untitled-ontology-9:LastName>Ben Rayana</untitled-ontology-9:LastName>
+        <untitled-ontology-9:Username>Ibrahim</untitled-ontology-9:Username>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Mahdi -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Mahdi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <untitled-ontology-9:hasMessages rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Thank_You"/>
+        <untitled-ontology-9:hasSkills rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Multi_Tasking"/>
+        <untitled-ontology-9:isFreelancerOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed"/>
+        <untitled-ontology-9:Email>Mahdi.fehri@espri.tn</untitled-ontology-9:Email>
+        <untitled-ontology-9:FirstName>Mahdi</untitled-ontology-9:FirstName>
+        <untitled-ontology-9:LastName>Fehri</untitled-ontology-9:LastName>
+        <untitled-ontology-9:Username>Mahdi</untitled-ontology-9:Username>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MedAziz -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MedAziz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Freelancer"/>
+        <untitled-ontology-9:hasMessages rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Thank_You"/>
+        <untitled-ontology-9:hasSkills rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Stress_Management"/>
+        <untitled-ontology-9:isFreelancerOf rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed"/>
+        <untitled-ontology-9:Email>MohamedAziz.ferchichi@esprit.tn</untitled-ontology-9:Email>
+        <untitled-ontology-9:FirstName>Med Aziz</untitled-ontology-9:FirstName>
+        <untitled-ontology-9:LastName>Ferchichi</untitled-ontology-9:LastName>
+        <untitled-ontology-9:Username>Fritchou</untitled-ontology-9:Username>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Multi_Tasking -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Multi_Tasking">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+        <untitled-ontology-9:skillCategory>Data_Science</untitled-ontology-9:skillCategory>
+        <untitled-ontology-9:skillDescription>Managing lot of tasks</untitled-ontology-9:skillDescription>
+        <untitled-ontology-9:skillName>Multi Tasking</untitled-ontology-9:skillName>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#OrderForAhmed -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#OrderForAhmed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <untitled-ontology-9:hasMessages rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Gerat_Work"/>
+        <untitled-ontology-9:hasPayments rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#120$"/>
+        <untitled-ontology-9:orderDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:orderDate>
+        <untitled-ontology-9:orderPaymentMethod>Cash</untitled-ontology-9:orderPaymentMethod>
+        <untitled-ontology-9:orderStatus>Done</untitled-ontology-9:orderStatus>
+        <untitled-ontology-9:orderTotalAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">223</untitled-ontology-9:orderTotalAmount>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Sarra -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Sarra">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Admin"/>
+        <untitled-ontology-9:Supervises rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ibrahim"/>
+        <untitled-ontology-9:Supervises rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Mahdi"/>
+        <untitled-ontology-9:Supervises rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#MedAziz"/>
+        <untitled-ontology-9:Email>sara.bentarjem@esprit.tn</untitled-ontology-9:Email>
+        <untitled-ontology-9:FirstName>Sara</untitled-ontology-9:FirstName>
+        <untitled-ontology-9:LastName>Ben Tarjem</untitled-ontology-9:LastName>
+        <untitled-ontology-9:Username>Sarah</untitled-ontology-9:Username>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Stress_Management -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Stress_Management">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Skills"/>
+        <untitled-ontology-9:skillCategory>Web development</untitled-ontology-9:skillCategory>
+        <untitled-ontology-9:skillDescription>stress</untitled-ontology-9:skillDescription>
+        <untitled-ontology-9:skillName>stress management</untitled-ontology-9:skillName>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Thank_You -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Thank_You">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Messages"/>
+        <untitled-ontology-9:hasAutor rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Ahmed"/>
+        <untitled-ontology-9:messageContent>thank you</untitled-ontology-9:messageContent>
+        <untitled-ontology-9:messageSubject>thanking</untitled-ontology-9:messageSubject>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Web_Application -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Web_Application">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders"/>
+        <untitled-ontology-9:orderDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:orderDate>
+        <untitled-ontology-9:orderPaymentMethod>Cash</untitled-ontology-9:orderPaymentMethod>
+        <untitled-ontology-9:orderStatus>Done</untitled-ontology-9:orderStatus>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Web_development -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Web_development">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Category"/>
+        <untitled-ontology-9:hasSkills rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Stress_Management"/>
+        <untitled-ontology-9:CategoryDesc>Web dev</untitled-ontology-9:CategoryDesc>
+        <untitled-ontology-9:CategoryName>web development</untitled-ontology-9:CategoryName>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#120$ -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#120$">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments"/>
+        <untitled-ontology-9:orderDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:orderDate>
+        <untitled-ontology-9:paymentAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</untitled-ontology-9:paymentAmount>
+        <untitled-ontology-9:paymentDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T09:30:10.5</untitled-ontology-9:paymentDate>
+        <untitled-ontology-9:paymentMethod>Cash</untitled-ontology-9:paymentMethod>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

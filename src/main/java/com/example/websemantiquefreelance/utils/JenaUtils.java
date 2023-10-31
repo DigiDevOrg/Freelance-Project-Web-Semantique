@@ -25,6 +25,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.update.UpdateAction;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateRequest;
+import org.springframework.context.annotation.Bean;
 
 public class JenaUtils {
     private static JenaUtils _instance = null;
@@ -36,7 +37,7 @@ public class JenaUtils {
     public Dataset dataset;
 
     public static String getPrefix() {
-        return "untitled-ontology-2";
+        return "untitled-ontology-9";
     }
 
     public JenaUtils() {

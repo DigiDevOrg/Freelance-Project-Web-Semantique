@@ -1,65 +1,135 @@
 package com.example.websemantiquefreelance;
 
-import com.example.websemantiquefreelance.services.PaymentsService;
+
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/payments")
 public class PaymentsRestApi {
-    @GetMapping("/all")
-    public ResponseEntity<List<Map<String, String>>> getAllGroups(@RequestParam(value = "paymentMethod", required = false) String paymentMethodFilter) {
+    private OntModel ontModel;
+    public PaymentsRestApi() {
+        // Inside the constructor or an initialization method, initialize OntModel
         Model model = ModelFactory.createDefaultModel();
-        model.read("src/main/java/com/example/websemantiquefreelance/Freelancing.rdf");
-        OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
-        String sparqlQuery = "PREFIX ex: <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#> " +
-                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
-                "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
-                "SELECT DISTINCT ?payment ?paymentDate ?paymentAmount ?paymentMethod " +
+        model.read("src/main/java/com/example/websemantiquefreelance/Freelancing.rdf"); // Replace with your file path
+
+        ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Map<String, String>>> getAllPayments() {
+        String sparqlQuery = "PREFIX ex: <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#> " +
+                "SELECT ?Payments ?paymentDate ?paymentAmount ?paymentMethod " +
                 "WHERE { " +
-                "  ?payment a ?paymentAmount; " +
-                "          ex:name ?paymentMethod; " +
-                "          ex:paymentMethod ?paymentMethod. " +
-                "  OPTIONAL { ?payment a ?subClass. } " +
-                (paymentMethodFilter != null ? "FILTER (str(?paymentMethod) = '" + paymentMethodFilter + "')." : "") +
+                "  ?Payments a ex:Payments; " +
+                "           ex:paymentDate ?paymentDate; " +
+                "           ex:paymentAmount ?paymentAmount; " +
+                "           ex:paymentMethod ?paymentMethod. " +
                 "}";
 
         QueryExecution queryExecution = QueryExecutionFactory.create(QueryFactory.create(sparqlQuery), ontModel);
-        ResultSet resultSet = queryExecution.execSelect();
 
+        try {
+            ResultSet resultSet = queryExecution.execSelect();
+            List<Map<String, String>> resultList = processResultSet(resultSet);
+            return ResponseEntity.ok(resultList);
+        } finally {
+            queryExecution.close();
+        }
+    }
+
+    private List<Map<String, String>> processResultSet(ResultSet resultSet) {
         List<Map<String, String>> resultList = new ArrayList<>();
-        while (resultSet.hasNext()) {
-            QuerySolution solution = resultSet.nextSolution();
-            String paymentMethod = solution.get("paymentMethod") != null ? solution.get("paymentMethod").toString() : null;
-            String paymentDate = solution.get("paymentDate") != null ? solution.get("paymentDate").toString() : null;
-            String paymentAmount = solution.get("paymentAmount") != null ? solution.get("paymentAmount").toString() : null;
 
-            Map<String, String> paymentMap = new HashMap<>();
-            if (paymentMethod != null) paymentMap.put("paymentMethod", paymentMethod);
-            if (paymentDate != null) paymentMap.put("paymentDate", paymentDate);
-            if (paymentAmount != null) paymentMap.put("paymentAmount", paymentAmount);
+        while (resultSet.hasNext()) {
+            QuerySolution qs = resultSet.nextSolution();
+            Map<String, String> paymentMap = new LinkedHashMap<>();
+
+            Resource payment = qs.getResource("Payments");
+            RDFNode paymentDate = qs.get("paymentDate");
+            RDFNode paymentAmount = qs.get("paymentAmount");
+            RDFNode paymentMethod = qs.get("paymentMethod");
+
+            if (payment != null) {
+                paymentMap.put("Payment", payment.toString());
+            }
+            if (paymentDate != null) {
+                paymentMap.put("Payment Date", paymentDate.toString());
+            }
+            if (paymentAmount != null) {
+                paymentMap.put("Payment Amount", paymentAmount.toString());
+            }
+            if (paymentMethod != null) {
+                paymentMap.put("Payment Method", paymentMethod.toString());
+            }
+
             resultList.add(paymentMap);
         }
 
-        return ResponseEntity.ok(resultList);
+        return resultList;
     }
+
+    @GetMapping("/byDate")
+    public ResponseEntity<List<Map<String, String>>> getAllByDate(@RequestParam("paymentDate") String paymentDate) {
+        // Construct the SPARQL query to get payments by date
+        String sparqlQuery = "PREFIX ex: <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#> " +
+                "SELECT ?Payments ?paymentDate ?paymentAmount ?paymentMethod " +
+                "WHERE { " +
+                "  ?Payments a ex:Payments; " +
+                "           ex:paymentDate ?paymentDate; " +
+                "           ex:paymentAmount ?paymentAmount; " +
+                "           ex:paymentMethod ?paymentMethod. " +
+                "  FILTER(?paymentDate = \"" + paymentDate + "\")" +
+                "}";
+
+        QueryExecution queryExecution = QueryExecutionFactory.create(QueryFactory.create(sparqlQuery), ontModel);
+
+        try {
+            ResultSet resultSet = queryExecution.execSelect();
+            List<Map<String, String>> resultList = processResultSet(resultSet);
+            return ResponseEntity.ok(resultList);
+        } finally {
+            queryExecution.close();
+        }
+    }
+
+    @GetMapping("/byPaymentMethod")
+    public ResponseEntity<List<Map<String, String>>> getByPaymentMethod(@RequestParam("paymentMethod") String paymentMethod) {
+        // Construct the SPARQL query to get payments by payment method
+        String sparqlQuery = "PREFIX ex: <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#> " +
+                "SELECT ?payment ?paymentDate ?paymentAmount ?paymentMethod " +
+                "WHERE { " +
+                "  ?payment a ex:Payments; " +
+                "           ex:paymentDate ?paymentDate; " +
+                "           ex:paymentAmount ?paymentAmount; " +
+                "           ex:paymentMethod \"" + paymentMethod + "\". " +
+                "}";
+
+        QueryExecution queryExecution = QueryExecutionFactory.create(QueryFactory.create(sparqlQuery), ontModel);
+
+        try {
+            ResultSet resultSet = queryExecution.execSelect();
+            List<Map<String, String>> resultList = processResultSet(resultSet);
+            return ResponseEntity.ok(resultList);
+        } finally {
+            queryExecution.close();
+        }
+    }
+
     @PostMapping("/addPayment")
     public ResponseEntity<String> addGroup(@RequestParam("paymentMethod") String paymentMethod, @RequestParam("paymentDate") String paymentDate, @RequestParam("paymentAmount") String paymentAmount) {
         Model model = ModelFactory.createDefaultModel();
@@ -67,23 +137,13 @@ public class PaymentsRestApi {
         OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
 
         try {
-            String groupIndividualURI = "http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#Payment" + System.currentTimeMillis();
+            String groupIndividualURI = "http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Payments" + System.currentTimeMillis();
 
-        /*    // Determine the class of the group based on the groupType
-            String groupClassURI = "";
-            if ("public".equalsIgnoreCase(groupType)) {
-                groupClassURI = "http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#publicGroup";
-            } else if ("private".equalsIgnoreCase(groupType)) {
-                groupClassURI = "http://www.semanticweb.org/inès/ontologies/2023/9/untitled-ontology-2#privateGroup";
-            } else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid group type.");
-            }
-*/
 
-            Individual groupIndividual = ontModel.createIndividual(groupIndividualURI, ontModel.getOntClass("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#payment"));
+            Individual groupIndividual = ontModel.createIndividual(groupIndividualURI, ontModel.getOntClass("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#payment"));
 
-            groupIndividual.addProperty(ontModel.getDatatypeProperty("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#paymentDate"), paymentDate);
-            groupIndividual.addProperty(ontModel.getDatatypeProperty("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#paymentAmount"), paymentAmount);
+            groupIndividual.addProperty(ontModel.getDatatypeProperty("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentDate"), paymentDate);
+            groupIndividual.addProperty(ontModel.getDatatypeProperty("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentAmount"), paymentAmount);
 
             try (OutputStream outputStream = new FileOutputStream("src/main/java/com/example/websemantiquefreelance/Freelancing.rdf")) {
                 ontModel.write(outputStream, "RDF/XML-ABBREV");
@@ -131,7 +191,7 @@ public class PaymentsRestApi {
 
         if (paymentIndividual != null) {
             // Update the description of the group
-            paymentIndividual.setPropertyValue(ontModel.getDatatypeProperty("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-2#paymentAmount"), ontModel.createTypedLiteral(newAmount));
+            paymentIndividual.setPropertyValue(ontModel.getDatatypeProperty("http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#paymentAmount"), ontModel.createTypedLiteral(newAmount));
 
             // Save the updated RDF data to your file or database
             try (OutputStream outputStream = new FileOutputStream("src/main/java/com/example/websemantiquefreelance/Freelancing.rdf")) {

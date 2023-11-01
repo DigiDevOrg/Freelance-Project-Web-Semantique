@@ -35,8 +35,40 @@ public class ReviewsRestApi {
             return jenaUtils.get().executeSelect(sparqlQuery, fields);
         }
 
-
-
+    @GetMapping("/byRating")
+    public List<Map<String, String>> getByRating(@RequestParam("rating") Integer rating) {
+        String sparqlQuery = "SELECT ?review ?reviewDate ?reviewRating ?reviewText " +
+                "WHERE {" +
+                "  ?review a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews>." +
+                "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewDate> ?reviewDate." +
+                "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewRating> <" + rating + ">." +
+                "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewText> ?reviewText." +
+                "}";
+        List<List<String>> fields = List.of(
+                List.of("review", "reviewURI"),
+                List.of("reviewDate", "reviewDate"),
+                List.of("reviewRating", "reviewRating"),
+                List.of("reviewText", "reviewText")
+        );
+        return jenaUtils.get().executeSelect(sparqlQuery, fields);
+    }
+    @GetMapping("/byText")
+    public List<Map<String, String>> getByText(@RequestParam("text") String text) {
+        String sparqlQuery = "SELECT ?review ?reviewDate ?reviewRating ?reviewText " +
+                "WHERE {" +
+                "  ?review a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Reviews>." +
+                "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewDate> ?reviewDate." +
+                "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewRating> ?reviewRating." +
+                "  ?review <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#reviewText> <" + text + ">." +
+                "}";
+        List<List<String>> fields = List.of(
+                List.of("review", "reviewURI"),
+                List.of("reviewDate", "reviewDate"),
+                List.of("reviewRating", "reviewRating"),
+                List.of("reviewText", "reviewText")
+        );
+        return jenaUtils.get().executeSelect(sparqlQuery, fields);
+    }
         @GetMapping("/details")
         public List<Map<String, String>> getReviewDetails(@RequestParam String reviewURI) {
             String sparqlQuery = "SELECT ?property ?value WHERE {<" + reviewURI + "> ?property ?value.}";

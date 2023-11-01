@@ -28,6 +28,7 @@ public class CategoryService {
                 List.of("CategoryName", "CategoryName"),
                 List.of("CategoryDesc", "CategoryDesc")
         );
+
         return jenaUtils.get().executeSelect(sparqlQuery, fields);
     }
 

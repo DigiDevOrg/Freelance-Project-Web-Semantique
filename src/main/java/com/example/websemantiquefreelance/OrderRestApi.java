@@ -24,6 +24,7 @@ public class OrderRestApi {
     @GetMapping("/allOrder")
     @ResponseStatus
     public ResponseEntity<?> getAll() {
+
         return ResponseEntity.ok(orderService.getAll());
     }
 

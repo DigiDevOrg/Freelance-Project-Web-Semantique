@@ -24,8 +24,10 @@ public class OrderRestApi {
     @Autowired
     OrderService orderService;
     @GetMapping("/allOrder")
+
     public List<Map<String, String>> getAll() {
         return orderService.getAll();
+
     }
 
 

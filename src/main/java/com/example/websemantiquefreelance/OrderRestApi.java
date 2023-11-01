@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin("*")
 @RestController
@@ -22,9 +24,8 @@ public class OrderRestApi {
     @Autowired
     OrderService orderService;
     @GetMapping("/allOrder")
-    @ResponseStatus
-    public ResponseEntity<?> getAll() {
-        return ResponseEntity.ok(orderService.getAll());
+    public List<Map<String, String>> getAll() {
+        return orderService.getAll();
     }
 
 

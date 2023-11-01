@@ -15,58 +15,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
 public class OrderService {
-    String prefix= JenaUtils.getPrefix();
-    public List<?> getAll() {
-        String query = "SELECT ?individual ?orderStatus ?orderDate \n" +
-                "WHERE {\n" +
-                " ?individual a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Order>.\n" +
-                " OPTIONAL { ?individual <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderStatus> ?orderStatus }\n"
-                +
-                " OPTIONAL { ?individual <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderDate> ?orderDate }\n"
-             +
+    JenaUtils jenaUtils;
+    public List<Map<String, String>> getAll() {
+        String sparqlQuery = "SELECT ?order ?orderStatus ?orderDate " +
+                "WHERE {" +
+                "  ?order a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Orders>." +
+                "  ?order <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderStatus> ?orderStatus ." +
+                "  ?order <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#orderDate> ?orderDate. " +
                 "}";
 
-        List<List<String>> fields = new ArrayList<>();
-        // fill array on creation
-        fields.add(new ArrayList<String>() {
-            {
-                add("orderStatus");
-                add("orderStatus");
-            }
-        });
-        fields.add(new ArrayList<String>() {
-            {
-                add("orderDate");
-                add("orderDate");
-            }
-        });
-        fields.add(new ArrayList<String>() {
-            {
-                add("pageUrl");
-                add("pageUrl");
-            }
-        });
-        fields.add(new ArrayList<String>() {
-            {
-                add("likesCount");
-                add("likesCount");
-            }
-        });
-        fields.add(new ArrayList<String>() {
-            {
-                add("name");
-                add("name");
-            }
-        });
-
-        return JenaUtils.get().executeSelect(query, fields);
+        List<List<String>> fields = List.of(
+                List.of("order", "orderURI"),
+                List.of("orderStatus", "orderStatus"),
+                List.of("orderDate", "orderDate")
+        );
+        System.out.println(fields);
+        return JenaUtils.get().executeSelect(sparqlQuery, fields);
     }
+
     @DeleteMapping("/deleteOrder")
     public ResponseEntity<String> deleteOrder(@RequestParam("orderId") String orderId) {
         Model model = ModelFactory.createDefaultModel();

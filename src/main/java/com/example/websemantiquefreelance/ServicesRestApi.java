@@ -22,10 +22,10 @@ public class ServicesRestApi {
         return servicesService.getAllServices();
     }
 
-    @GetMapping("/category")
-    public List<Map<String, String>> getServicesByCategory(@RequestParam String categoryURI) {
-        return servicesService.getServicesByCategory(categoryURI);
-    }
+        @GetMapping("/category")
+        public List<Map<String, String>> getServicesByCategory(@RequestParam String categoryURI) {
+            return servicesService.getServicesByCategory(categoryURI);
+        }
 
     @GetMapping("/details")
     public List<Map<String, String>> getServiceDetails(@RequestParam String serviceURI) {

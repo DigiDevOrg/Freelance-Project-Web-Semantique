@@ -46,10 +46,11 @@ public class ServicesService {
                 List.of("serviceDescription", "serviceDescription"),
                 List.of("servicePrice", "servicePrice")
         );
+
         return jenaUtils.get().executeSelect(sparqlQuery, fields);
     }
 
-    public List<Map<String, String>> getServiceDetails(@RequestParam String serviceURI) {
+    public List<Map<String, String>> getServiceDetails( String serviceURI) {
         String sparqlQuery = "SELECT ?property ?value WHERE {<" + serviceURI + "> ?property ?value.}";
         List<List<String>> fields = List.of(
                 List.of("property", "property"),
@@ -58,31 +59,38 @@ public class ServicesService {
         return jenaUtils.get().executeSelect(sparqlQuery, fields);
     }
 
-    public List<Map<String, String>> searchServices(@RequestParam String keyword) {
+
+    public List<Map<String, String>> searchServices(String keyword) {
         String sparqlQuery = "SELECT ?service ?serviceName ?serviceDescription ?servicePrice " +
                 "WHERE {" +
                 "  ?service a <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#Services>." +
-                "  ?service <#serviceName> ?serviceName." +
-                "  ?service <#serviceDescription> ?serviceDescription." +
-                "  ?service <#servicePrice> ?servicePrice." +
+                "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceName> ?serviceName." +
+                "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceDescription> ?serviceDescription." +
+                "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#servicePrice> ?servicePrice." +
                 "  FILTER (regex(?serviceName, '" + keyword + "', 'i') || regex(?serviceDescription, '" + keyword + "', 'i'))." +
                 "}";
-        List<List<String>> fields = List.of(
-                List.of("service", "serviceURI"),
-                List.of("serviceName", "serviceName"),
-                List.of("serviceDescription", "serviceDescription"),
-                List.of("servicePrice", "servicePrice")
-        );
-         return jenaUtils.get().executeSelect(sparqlQuery, fields);
+            List<List<String>> fields = List.of(
+                    List.of("service", "serviceURI"),
+                    List.of("serviceName", "serviceName"),
+                    List.of("serviceDescription", "serviceDescription"),
+                    List.of("servicePrice", "servicePrice")
+            );
+
+        System.out.println("SPARQL QUERY: " + sparqlQuery);
+        System.out.println(keyword);
+            List<Map<String, String>> results = jenaUtils.get().executeSelect(sparqlQuery, fields);
+
+
+            return results;
     }
 
     public List<Map<String, String>> getServicesByFreelancer(@RequestParam String freelancerURI) {
         String sparqlQuery = "SELECT ?service ?serviceName ?serviceDescription ?servicePrice " +
                 "WHERE {" +
-                "  <" + freelancerURI + "> <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#hasService> ?service." +
                 "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceName> ?serviceName." +
                 "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#serviceDescription> ?serviceDescription." +
                 "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#servicePrice> ?servicePrice." +
+                "  ?service <http://www.semanticweb.org/mahdi/ontologies/2023/9/untitled-ontology-9#BelongsTo> <" + freelancerURI + ">." +
                 "}";
         List<List<String>> fields = List.of(
                 List.of("service", "serviceURI"),
@@ -90,6 +98,8 @@ public class ServicesService {
                 List.of("serviceDescription", "serviceDescription"),
                 List.of("servicePrice", "servicePrice")
         );
+        System.out.println("SPARQL QUERY: " + sparqlQuery);
+
         return jenaUtils.get().executeSelect(sparqlQuery, fields);
     }
 

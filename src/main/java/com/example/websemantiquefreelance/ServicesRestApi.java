@@ -15,8 +15,9 @@ import java.util.Map;
 @RequestMapping("/services")
 public class ServicesRestApi {
 
-    @Autowired
+   @Autowired
     private ServicesService servicesService;
+
     @GetMapping("/all")
     public List<Map<String, String>> getAllServices() {
         return servicesService.getAllServices();

@@ -28,7 +28,6 @@ public class CategoryRestApi {
 
 
     @GetMapping("/all")
-    @ResponseStatus
     public List<Map<String, String>> getAll() {
         return categoryService.getAll();
     }
